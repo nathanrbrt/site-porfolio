@@ -1,0 +1,793 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+	font-family: Inter, sans-serif;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background: white;
+	color: black;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+.horizontal-scroll {
+	display: flex;
+	width: 400%; /* 100% * número de páginas */
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	transition: transform 0.9s ease; /* efeito que vai pra outra página de forma de rolagem */
+}
+
+.page {
+	width: 100vw;
+	height: 100vh;
+	flex-shrink: 0;
+	scroll-snap-align: start;
+}
+
+.container {
+	font-size: small;
+	display: flex;
+	flex-direction: row;
+	gap: 5rem;
+	margin-top: 50px;
+	margin-left: 70px;
+	align-items: baseline;
+	-webkit-overflow-scrolling: touch;
+}
+
+.bio-page1 {
+	width: 350px;
+	height: 90px;
+	color: #A5A5A5;
+}
+
+.icones-page1 {
+	list-style-type: none;
+	color: black;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+.local-page1 {
+	font-size: small;
+	color: #A5A5A5;
+}
+
+.profissao-page1 {
+	margin-left: 70px;
+	position: fixed;
+	bottom: 0;
+	margin-bottom: 40px;
+	font-size: 2rem;
+	color: black;
+	display: inline-block;
+		
+	animation: fadeIn; 
+	animation-duration: 2s; 
+}
+
+/* PÁGINA 2 */
+
+#page2 .container {
+	display: flex;
+	height: 100vh; /* Garante que o container ocupe toda a altura disponível */
+	background: #000;
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+#page2 .container p {
+	font-size: 5em;
+	padding-top: 0;
+	padding-left: 70px;
+	margin-top: 30px;
+	animation: fadeIn; 
+	animation-duration: 7s; 
+}
+
+.text-container {
+	color: #f2f2f2;
+	cursor: pointer;
+	margin-top: 70px;
+	
+}
+
+.hidden-text {
+	display: none; /* Os textos continuam escondidos inicialmente */
+	position: fixed; /* Posiciona os textos de forma absoluta */
+	margin-left: 5px; /* Adiciona um pouco de margem da esquerda, se necessário */
+	top: 100px; /* Controla a posição vertical, ajuste conforme necessário */
+	font-size: 17px;
+	color: #A5A5A5;
+}
+
+.show {
+	display: block; /* Mostra o texto ao clicar */
+}
+
+#text1 {
+	padding-left: 70px;
+	top: 200px;
+	animation: fadeIn; 
+	animation-duration: 0.4s; 
+}
+
+#text2 {
+	padding-left: 70px;
+	top: 348px;
+	animation: fadeIn; 
+	animation-duration: 0.4s; 
+}
+
+#text3 {
+	padding-left: 70px;
+	top: 500px;
+	animation: fadeIn; 
+	animation-duration: 0.4s; 
+}
+
+/* ----------------------FIM DA PÁGINA 2 */
+
+/* PÁGINA 3 */
+
+.avatar-page3 {
+	flex: 1;
+	overflow: hidden; /* Garantir que a imagem ocupe toda a altura disponível */
+	text-align: right;  
+}
+
+.avatar-page3 img {
+	width: 400px;
+	height: auto;
+	object-fit: cover; 
+	animation: fadeInRight; 
+	animation-duration: 10s;
+}
+
+#page3 {
+	display: flex;
+	height: 100vh; /* Para garantir que a página ocupe toda a altura da tela */
+	background: white;
+	color: #A5A5A5;
+}
+
+#page3 .container {
+	color: #A5A5A5;
+	flex-direction: column;
+	margin: 0;
+	padding-left: 80px;
+	padding-right: 80px;
+	gap: 1rem;
+}
+
+#icones-page3 {
+	display: inline-flex;
+	text-decoration: none;
+	list-style-type: none;
+	margin-top: 150px;
+	padding-left: 0;
+	gap: 1.5rem;
+}
+
+.curriculo-page3 {
+	color: black;
+}
+
+/* ----------------------FIM DA PÁGINA 3 */
+
+
+/* BARRA INFERIOR */
+
+.bottom-bar {
+	background-color: #f2f2f2;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 32rem;
+	padding: 15px 0;
+	transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+	cursor: pointer;  
+}
+
+.bottom-bar::after {
+	content: '';
+	position: absolute;
+	bottom: -10px; /* Alinha a faixa branca abaixo da barra inferior */
+	left: 0;
+	width: 100%;
+	height: 10px;
+	background-color: #f2f2f2;
+	transition: opacity 0.3s ease-in-out;
+	opacity: 0;
+}
+
+.bottom-bar:hover::after {
+	opacity: 1; /* Mostra a faixa branca quando o mouse passa por cima */
+}
+
+.bottom-bar:hover {
+	transform: translateY(-10px);
+}
+
+.nav-text {
+	font-size: large;
+	color: black;
+	background-color: inherit;
+	margin: 0 15px;
+	padding: 5px 10px;
+}
+
+/* PÁGINA 4 ABAIXO - VERTICAL: SOBE */
+
+.overlay {
+	position: fixed;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: white;
+	color:#000;
+	display: flex;
+	flex-direction: column;
+	transition: transform 0.6s ease-in-out;
+	transform: translateY(100%);
+}
+
+.new-page {
+	color: #000;
+	font-size: 15px;
+	text-align: center;
+	max-height: 100vh; /* Limita a altura da página */
+	overflow-y: auto; /* Permite rolar verticalmente se o conteúdo exceder a altura */
+}
+
+.overlay.show {
+	transform: translateY(-100%);
+}
+
+/* Close button */
+.close-button {
+	background: transparent;
+	position: absolute;
+	top: 20px;
+	right: 69px;
+	border: none;
+	cursor: pointer;
+}
+
+/* Esconde barra de rolagem */
+::-webkit-scrollbar {
+	display: none;
+}
+
+.projetos {
+	color: #000;
+	padding-left: 50px;
+	padding-bottom: 70px;
+}
+
+.projetos_container {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	padding-top: 30px;
+}
+
+.projeto_item {
+	display: flex;
+	text-align: right;
+	gap: 10px;
+}
+
+.projetos_imagem img {
+	max-width: 300px; /* Tamanho da imagem */
+	cursor: pointer;
+}
+
+.projetos_info {
+	display: flex;
+	flex-direction: column;
+}
+
+.projetos_info h4,
+.projetos_info p {
+	margin: 0;
+	padding-left: 750px;	
+}
+
+.projetos_info p {
+	margin-top: 5px; /* Adiciona espaçamento entre o título e o parágrafo */
+}
+
+/* ----------------------FIM DA PÁGINA 4 */
+
+/* RESPONSIVIDADE */
+
+@media(max-width: 450px) {
+
+/* PÁGINA 1 */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+	font-family: Inter, sans-serif;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background: white;
+	color: black;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+.horizontal-scroll {
+	display: flex;
+	width: 300%; /* 100% * número de páginas */
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	transition: transform 0.9s ease; /* efeito que vai pra outra página de forma de rolagem */
+}
+
+.page {
+	width: 100vw;
+	height: 100vh;
+	flex-shrink: 0;
+	scroll-snap-align: start;
+}
+
+	.container {
+		font-size: small;
+		display: flex;
+		flex-direction: row;
+		gap: 2.5rem;
+		padding-right: 40px;
+		margin-top: 50px;
+		margin-left: 40px;
+		align-items: baseline;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.profissao-page1 {
+		margin-left: 40px;		
+/*		position: fixed;*/
+		bottom: 0;
+		margin-bottom: 40px;
+		padding-bottom: 20px;
+		font-size: 1.4rem;
+		color: black;
+		display: inline-block;			
+		animation: fadeIn; 
+		animation-duration: 3s; 
+	}
+
+	/* PÁGINA 2 */
+
+	#page2 .container p {
+		font-size: 3.9em;
+		line-height: 1.7;
+		padding-top: 0;
+		padding-left: 35px;
+		margin-top: 10px;
+		animation: fadeIn; 
+		animation-duration: 7s; 
+	}
+	
+	.text-container {
+		color: #f2f2f2;
+		cursor: pointer;
+		margin-top: 70px;
+	}
+
+	#text1 {
+	padding-left: 31px;
+	top: 160px;
+	animation: fadeIn; 
+	animation-duration: 0.5s; 
+}
+
+#text2 {
+	padding-left: 31px;
+	top: 390px;
+	animation: fadeIn; 
+	animation-duration: 0.5s; 
+}
+
+#text3 {
+	padding-left: 31px;
+	top: 522px;
+	animation: fadeIn; 
+	animation-duration: 0.5s; 
+}
+
+.hidden-text {
+	width: 335px;
+	display: none; /* Os textos continuam escondidos inicialmente */
+	position: fixed; /* Posiciona os textos de forma absoluta */
+	margin-left: 5px; 
+	top: 100px; 
+	font-size: 15px;
+	color: #A5A5A5;
+}
+
+.show {
+	display: block; /* Mostra o texto ao clicar */
+}
+
+/* PÁGINA 3 */
+
+#page3 {
+	display: flex;
+	flex-direction: column;
+	height: 100vh; /* Garante que a página ocupe toda a altura da tela */
+	background: white;
+	color: #A5A5A5;
+	
+}
+
+#page3 .container {
+	color: #A5A5A5;
+	margin: 0;
+	padding: 0; 
+	gap: 1rem;
+	height: 370px;
+}
+
+.avatar-page3 img {
+	width: 450px;
+	height: auto; 	
+	object-fit: cover; /* Faz com que a imagem preencha o espaço sem distorcer */
+	animation: fadeInUp;
+	animation-duration: 9s;
+}
+
+#icones-page3 {
+	display: inline-flex;
+	text-decoration: none;
+	list-style-type: none;
+	margin-top: 5px;
+	padding-left: 170px;
+	gap: 1rem;
+}
+
+#page3 h2, #page3 p {
+	text-align: right;
+	padding-left: 190px;
+}
+
+#page3 .email-page3 {
+	padding-left: 235px;
+}
+
+#page3 .curriculo-page3 {
+	padding-left: 335px;
+}
+
+/* PÁGINA 4 */
+
+.bottom-bar {
+	background-color: #f2f2f2;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 3.6rem;
+	padding: 15px 0;
+	transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+	cursor: pointer;  
+}
+
+.projetos {
+	color: #000;
+	padding-left: 65px;
+	padding-bottom: 70px;
+}
+
+.projetos_container {
+	display: flex;
+	flex-direction: column;
+	gap: 120px;
+	padding-top: 30px;
+}
+
+.projetos_info {
+	display: flex;
+	flex-direction: column;		
+	height: 130px;
+	padding: 0;
+	margin: 0;
+	width: 300px;
+	transform: translateX(-310px) translateY(170px);
+}
+
+#overlay h4, #overlay p {
+	color: #000;
+	height: 130px;
+	padding: 0;
+	padding-top: 10px;
+	margin: 0;
+	width: 300px;
+	text-align: center;
+	
+}
+
+#overlay h4 {
+	line-height: 4;
+}
+
+#overlay p {
+	line-height: 0.1;
+}
+
+.projetos_imagem img {
+	max-width: 300px; 
+	border-radius: 5px;
+	box-shadow: 2.5px 2.5px 2.5px rgba(0, 0, 0, 0.463);
+	cursor: pointer;
+}
+
+}
+
+@media(max-width: 360px) {
+
+	/* PÁGINA 1 */
+
+	@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+	* {
+		font-family: Inter, sans-serif;
+	}
+	
+	html {
+		scroll-behavior: smooth;
+	}
+	
+	body {
+		background: white;
+		color: black;
+		overflow: hidden;
+		margin: 0;
+		padding: 0;
+	}
+	
+	.horizontal-scroll {
+		display: flex;
+		width: 400%; /* 100% * número de páginas */
+		height: 100vh;
+		overflow-x: hidden;
+		overflow-y: hidden;
+		scroll-snap-type: x mandatory;
+		scroll-behavior: smooth;
+		transition: transform 0.9s ease; /* efeito que vai pra outra página de forma de rolagem */
+	}
+	
+	.page {
+		width: 100vw;
+		height: 100vh;
+		flex-shrink: 0;
+		scroll-snap-align: start;
+	}
+	
+		.container {
+			font-size: small;
+			display: flex;
+			flex-direction: row;
+			gap: 2.5rem;
+			padding-right: 40px;
+			margin-top: 50px;
+			margin-left: 40px;
+
+			align-items: baseline;
+			-webkit-overflow-scrolling: touch;
+		}
+	
+		.profissao-page1 {
+			margin-left: 30px;		
+			/*position: fixed;*/
+			bottom: 0;
+			margin-bottom: 40px;
+			padding-bottom: 20px;
+			
+			font-size: 1.4rem;
+			color: black;
+			display: inline-block;			
+			animation: fadeIn; 
+			animation-duration: 3s; 
+		}
+	
+		/* PÁGINA 2 */
+	
+		#page2 .container p {
+			font-size: 3.7em;
+			line-height: 1.7;
+			padding-top: 0;
+			padding-left: 30px;
+			margin-top: 10px;
+			animation: fadeIn; 
+			animation-duration: 7s; 
+		}
+		
+		.text-container {
+			color: #f2f2f2;
+			cursor: pointer;
+			margin-top: 70px;
+		}
+	
+		#text1 {
+		padding-left: 25px;
+		top: 158px;
+		animation: fadeIn; 
+		animation-duration: 0.5s; 
+	}
+	
+	#text2 {
+		padding-left: 25px;
+		top: 378px;
+		animation: fadeIn; 
+		animation-duration: 0.5s; 
+	}
+	
+	#text3 {
+		padding-left: 25px;
+		top: 505px;
+		animation: fadeIn; 
+		animation-duration: 0.5s; 
+	}
+	
+	.hidden-text {
+		width: 335px;
+		display: none; /* Os textos continuam escondidos inicialmente */
+		position: fixed; /* Posiciona os textos de forma absoluta */
+		margin-left: 5px; 
+		top: 100px; 
+		font-size: 15px;
+		color: #A5A5A5;
+	}
+	
+	.show {
+		display: block; /* Mostra o texto ao clicar */
+	}
+	
+	/* PÁGINA 3 */
+	
+	#page3 {
+		display: flex;
+		flex-direction: column;
+		height: 100vh; 
+		background: white;
+		color: #A5A5A5;
+		
+	}
+	
+	#page3 .container {
+		color: #A5A5A5;
+		margin: 0;
+		padding: 0; 
+		gap: 1rem;
+		height: 410px;
+		padding-top: 0;
+	}
+	
+	.avatar-page3 img {
+		width: 390px;
+		height: auto; 	
+		object-fit: cover; /* Preenche a imagem no espaço sem distorcer */
+		animation: fadeInUp; 
+		animation-duration: 9s;
+	}
+	
+	#icones-page3 {
+		display: inline-flex;
+		text-decoration: none;
+		list-style-type: none;
+		padding-left: 137px;
+		gap: 1rem;
+	}
+	
+	#page3 h2, #page3 p {
+		text-align: right;
+		padding-left: 130px;
+	}
+	
+	#page3 .email-page3 {
+		padding-left: 180px;
+	}
+	
+	#page3 .curriculo-page3 {
+		padding-left: 280px;
+	}
+	
+	/* PÁGINA 4 */
+	
+	.bottom-bar {
+		background-color: #f2f2f2;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		gap: 3.6rem;
+		padding: 15px 0;
+		transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+		cursor: pointer;  
+	}
+
+	.projetos {
+		color: #000;
+		padding-left: 30px;
+		padding-bottom: 70px;
+	}
+
+	.projetos_container {
+		display: flex;
+		flex-direction: column;
+		gap: 120px;
+		padding-top: 30px;
+	}
+
+	.projetos_info {
+		display: flex;
+		flex-direction: column;		
+		height: 130px;
+		padding: 0;
+		margin: 0;
+		width: 300px;
+		transform: translateX(-310px) translateY(170px);
+	}
+
+	#overlay h4, #overlay p {
+		color: #000;
+		height: 130px;
+		padding: 0;
+		padding-top: 10px;
+		margin: 0;
+		width: 300px;
+		text-align: center;
+		
+	}
+
+	#overlay h4 {
+		line-height: 4;
+	}
+
+	#overlay p {
+		line-height: 0.1;
+	}
+
+	.projetos_imagem img {
+		max-width: 300px; 
+		border-radius: 5px;
+		box-shadow: 2.5px 2.5px 2.5px rgba(0, 0, 0, 0.463);
+		cursor: pointer;
+	}
+
+	
+	
+	}
